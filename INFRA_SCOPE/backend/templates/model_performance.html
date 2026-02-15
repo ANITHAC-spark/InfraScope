@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InfraScope - Model Performance</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-tower-broadcast"></i>
+                    <span>InfraScope</span>
+                </div>
+                <button class="sidebar-toggle"><i class="fas fa-chevron-left"></i></button>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="/" class="nav-item" data-section="upload" data-route="dashboard">
+                    <i class="fas fa-laptop"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="/analytics" class="nav-item" data-section="analytics" data-route="analytics">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="/inspection-history" class="nav-item" data-section="history" data-route="history">
+                    <i class="fas fa-history"></i>
+                    <span>Inspection History</span>
+                </a>
+                <a href="/model-performance" class="nav-item active" data-section="model-performance" data-route="model-performance">
+                    <i class="fas fa-chart-area"></i>
+                    <span>Model Performance</span>
+                </a>
+                <a href="/settings" class="nav-item" data-section="settings" data-route="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="system-status">
+                    <div class="status-indicator" id="statusIndicator"></div>
+                    <span id="statusText">System Online</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="app-header">
+                <div class="header-title">
+                    <h1>Model Performance</h1>
+                    <p>View Model Training Performance Metrics</p>
+                </div>
+                <div class="header-info">
+                    <div class="time-display" id="timeDisplay"></div>
+                    <div class="user-info">
+                        <img src="https://ui-avatars.com/api/?name=Admin&background=6366f1&color=fff" alt="User">
+                        <span>Admin</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content Sections -->
+            <div class="content-wrapper">
+                <!-- Model Performance Section -->
+                <section id="model-performance-section" class="content-section active" data-page="model-performance">
+                    <div class="performance-grid">
+                        <div class="glass-card performance-card">
+                            <h2><i class="fas fa-chart-area"></i> Model Training Performance</h2>
+                            <div class="performance-info">
+                                <p>Training Loss vs Validation Loss Over Epochs</p>
+                            </div>
+                            <div class="plot-container">
+                                <div id="performanceContent" class="performance-content">
+                                    <img src="{{ plot_url }}" alt="Model Training Performance" class="performance-plot-image" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="glass-card performance-stats-card">
+                            <h2><i class="fas fa-tachometer-alt"></i> Performance Summary</h2>
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <label>Total Epochs:</label>
+                                    <span class="stat-value">50</span>
+                                </div>
+                                <div class="stat-item">
+                                    <label>Final Training Loss:</label>
+                                    <span class="stat-value">0.082</span>
+                                </div>
+                                <div class="stat-item">
+                                    <label>Final Validation Loss:</label>
+                                    <span class="stat-value">0.098</span>
+                                </div>
+                                <div class="stat-item">
+                                    <label>Best Epoch:</label>
+                                    <span class="stat-value">48</span>
+                                </div>
+                                <div class="stat-item">
+                                    <label>Overfitting Index:</label>
+                                    <span class="stat-value">Low</span>
+                                </div>
+                                <div class="stat-item">
+                                    <label>Model Status:</label>
+                                    <span class="stat-value status-healthy">Healthy</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Update time display
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('timeDisplay').textContent = now.toLocaleTimeString();
+        }
+        
+        updateTime();
+        setInterval(updateTime, 1000);
+
+        // Toggle sidebar
+        document.querySelector('.sidebar-toggle')?.addEventListener('click', () => {
+            document.querySelector('.sidebar').classList.toggle('collapsed');
+        });
+
+        // Update status indicator
+        const statusIndicator = document.getElementById('statusIndicator');
+        const statusText = document.getElementById('statusText');
+        statusIndicator.style.backgroundColor = '#10b981';
+        statusText.textContent = 'System Online';
+    </script>
+</body>
+</html>

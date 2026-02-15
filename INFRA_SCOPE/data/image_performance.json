@@ -1,0 +1,95 @@
+[
+  {
+    "timestamp": "2026-02-15T14:33:31.886101",
+    "filename": "1771146211831_test_white.png",
+    "image_analysis": {
+      "edge_density": 0.0,
+      "contrast": 0.0
+    },
+    "model_metrics": {
+      "cnn": {
+        "confidence": 0.45,
+        "accuracy": 0.84,
+        "precision": 0.829,
+        "recall": 0.812,
+        "f1_score": 0.824
+      },
+      "svm": {
+        "confidence": 0.4,
+        "accuracy": 0.8,
+        "precision": 0.788,
+        "recall": 0.78,
+        "f1_score": 0.782
+      },
+      "knn": {
+        "confidence": 0.35,
+        "accuracy": 0.75,
+        "precision": 0.737,
+        "recall": 0.728,
+        "f1_score": 0.731
+      }
+    }
+  },
+  {
+    "timestamp": "2026-02-15T14:33:35.331178",
+    "filename": "1771146215306_test_noise.png",
+    "image_analysis": {
+      "edge_density": 26.7268,
+      "contrast": 0.053599998354911804
+    },
+    "model_metrics": {
+      "cnn": {
+        "confidence": 0.98,
+        "accuracy": 0.946,
+        "precision": 0.946,
+        "recall": 0.945,
+        "f1_score": 0.945
+      },
+      "svm": {
+        "confidence": 0.95,
+        "accuracy": 0.91,
+        "precision": 0.909,
+        "recall": 0.917,
+        "f1_score": 0.908
+      },
+      "knn": {
+        "confidence": 0.92,
+        "accuracy": 0.864,
+        "precision": 0.862,
+        "recall": 0.87,
+        "f1_score": 0.862
+      }
+    }
+  },
+  {
+    "timestamp": "2026-02-15T14:34:54.523368",
+    "filename": "1771146294288_Screenshot_2025-10-29_051732.png",
+    "image_analysis": {
+      "edge_density": 3.3644,
+      "contrast": 0.08110000193119049
+    },
+    "model_metrics": {
+      "cnn": {
+        "confidence": 0.98,
+        "accuracy": 0.946,
+        "precision": 0.946,
+        "recall": 0.945,
+        "f1_score": 0.945
+      },
+      "svm": {
+        "confidence": 0.95,
+        "accuracy": 0.91,
+        "precision": 0.909,
+        "recall": 0.917,
+        "f1_score": 0.908
+      },
+      "knn": {
+        "confidence": 0.92,
+        "accuracy": 0.864,
+        "precision": 0.862,
+        "recall": 0.87,
+        "f1_score": 0.862
+      }
+    }
+  }
+]

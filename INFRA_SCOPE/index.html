@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InfraScope - Smart Infrastructure Damage Detection</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-tower-broadcast"></i>
+                    <span>InfraScope</span>
+                </div>
+                <button class="sidebar-toggle"><i class="fas fa-chevron-left"></i></button>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#dashboard" class="nav-item active" data-section="upload" data-route="dashboard">
+                    <i class="fas fa-laptop"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#analytics" class="nav-item" data-section="analytics" data-route="analytics">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="#history" class="nav-item" data-section="history" data-route="history">
+                    <i class="fas fa-history"></i>
+                    <span>Inspection History</span>
+                </a>
+                <a href="/model-performance" class="nav-item" data-section="model-performance" data-route="model-performance">
+                    <i class="fas fa-chart-area"></i>
+                    <span>Model Performance</span>
+                </a>
+                <a href="#settings" class="nav-item" data-section="settings" data-route="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="system-status">
+                    <div class="status-indicator" id="statusIndicator"></div>
+                    <span id="statusText">System Online</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="app-header">
+                <div class="header-title">
+                    <h1>Smart Infrastructure Damage Detection</h1>
+                    <p>AI-Powered Crack and Erosion Detection System</p>
+                </div>
+                <div class="header-info">
+                    <div class="time-display" id="timeDisplay"></div>
+                    <div class="user-info">
+                        <img src="https://ui-avatars.com/api/?name=Admin&background=6366f1&color=fff" alt="User">
+                        <span>Admin</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content Sections -->
+            <div class="content-wrapper">
+                <!-- Dashboard Section -->
+                <section id="upload-section" class="content-section active" data-page="dashboard">
+                    <!-- Dashboard Title Banner -->
+                    <div class="dashboard-title-banner">
+                        <h1><i class="fas fa-tower-broadcast"></i> InfraScope</h1>
+                        <p>AI-Powered Infrastructure Damage Detection System</p>
+                        <div class="system-features">
+                            <span class="feature-tag"><i class="fas fa-brain"></i> Multi-Model AI</span>
+                            <span class="feature-tag"><i class="fas fa-zap"></i> Real-Time Analysis</span>
+                            <span class="feature-tag"><i class="fas fa-shield-alt"></i> High Accuracy</span>
+                        </div>
+                    </div>
+                    
+                    <div class="section-grid">
+                        <!-- Image Upload Card -->
+                        <div class="glass-card upload-card">
+                            <h2><i class="fas fa-image"></i> Upload Infrastructure Image</h2>
+                            <div class="upload-area" id="uploadArea">
+                                <div class="upload-content">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <h3>Drag & Drop Your Image</h3>
+                                    <p>or click to browse</p>
+                                    <input type="file" id="fileInput" accept="image/*" hidden>
+                                </div>
+                            </div>
+                            <div class="upload-info">
+                                <p><strong>Supported formats:</strong> JPG, PNG, WebP</p>
+                                <p><strong>Max size:</strong> 25 MB</p>
+                            </div>
+                        </div>
+
+                        <!-- Live Prediction Card -->
+                        <div class="glass-card prediction-card">
+                            <h2><i class="fas fa-brain"></i> Live Prediction</h2>
+                            <div id="predictionContent" class="prediction-content">
+                                <div class="placeholder">
+                                    <i class="fas fa-hourglass-half"></i>
+                                    <p>Upload an image to start prediction</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Prediction Results Section -->
+                    <div id="resultsSection" class="results-section" style="display: none;">
+                        <!-- Prediction Mode Display -->
+                        <div id="predictionMode" style="margin-bottom: 15px; padding: 10px; background: #f0f4ff; border-left: 4px solid #2196F3; border-radius: 5px;">
+                            Loading prediction source...
+                        </div>
+
+                        <!-- Image Analytics Display -->
+                        <div id="imageAnalytics" style="margin-bottom: 15px;"></div>
+
+                        <div class="results-grid">
+                            <!-- Preview -->
+                            <div class="glass-card preview-card">
+                                <h3>Image Preview</h3>
+                                <img id="previewImage" src="" alt="Preview" class="preview-image">
+                            </div>
+
+                            <!-- CNN Results -->
+                            <div class="glass-card result-card">
+                                <h3><span class="model-badge cnn-badge">CNN</span> Results</h3>
+                                <div class="result-details">
+                                    <div class="result-row">
+                                        <span class="label">Defect Type:</span>
+                                        <span class="value cnn-defect">-</span>
+                                    </div>
+                                    <div class="result-row">
+                                        <span class="label">Confidence:</span>
+                                        <span class="value cnn-confidence">-</span>
+                                    </div>
+                                    <div class="result-row">
+                                        <span class="label">Severity:</span>
+                                        <span class="value cnn-severity">-</span>
+                                    </div>
+                                    <div class="confidence-bar">
+                                        <div class="confidence-fill cnn-fill" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- SVM Results -->
+                            <div class="glass-card result-card">
+                                <h3><span class="model-badge svm-badge">SVM</span> Results</h3>
+                                <div class="result-details">
+                                    <div class="result-row">
+                                        <span class="label">Defect Type:</span>
+                                        <span class="value svm-defect">-</span>
+                                    </div>
+                                    <div class="result-row">
+                                        <span class="label">Confidence:</span>
+                                        <span class="value svm-confidence">-</span>
+                                    </div>
+                                    <div class="result-row">
+                                        <span class="label">Severity:</span>
+                                        <span class="value svm-severity">-</span>
+                                    </div>
+                                    <div class="confidence-bar">
+                                        <div class="confidence-fill svm-fill" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- KNN Results -->
+                            <div class="glass-card result-card">
+                                <h3><span class="model-badge knn-badge">KNN</span> Results</h3>
+                                <div class="result-details">
+                                    <div class="result-row">
+                                        <span class="label">Defect Type:</span>
+                                        <span class="value knn-defect">-</span>
+                                    </div>
+                                    <div class="result-row">
+                                        <span class="label">Confidence:</span>
+                                        <span class="value knn-confidence">-</span>
+                                    </div>
+                                    <div class="result-row">
+                                        <span class="label">Severity:</span>
+                                        <span class="value knn-severity">-</span>
+                                    </div>
+                                    <div class="confidence-bar">
+                                        <div class="confidence-fill knn-fill" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Prediction Time & Alert -->
+                        <div class="results-footer">
+                            <div class="time-info">
+                                <span id="predictionTime">Prediction Time: -</span>
+                            </div>
+                            <div class="alert-section" id="alertSection" style="display: none;">
+                                <div class="alert-badge critical">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    <strong>CRITICAL ALERT</strong>
+                                </div>
+                                <p id="alertMessage"></p>
+                            </div>
+                        </div>
+
+                        <!-- Image-Specific Performance Metrics -->
+                        <div id="imagePerformanceContainer"></div>
+                    </div>
+                </section>
+
+                <!-- Analytics Section -->
+                <section id="analytics-section" class="content-section" data-page="analytics">
+                    <!-- Model Tabs Navigation -->
+                    <div class="analytics-tabs">
+                        <div class="tabs-header">
+                            <h2>Model Performance Analytics</h2>
+                        </div>
+                        <div class="model-tabs">
+                            <button class="tab-btn active" data-model="overview" onclick="switchAnalyticsTab(event, 'overview')">
+                                <i class="fas fa-chart-radar"></i>
+                                <span>Overview</span>
+                            </button>
+                            <button class="tab-btn" data-model="cnn" onclick="switchAnalyticsTab(event, 'cnn')">
+                                <span class="model-badge cnn-badge">CNN</span>
+                                <span>Details</span>
+                            </button>
+                            <button class="tab-btn" data-model="svm" onclick="switchAnalyticsTab(event, 'svm')">
+                                <span class="model-badge svm-badge">SVM</span>
+                                <span>Details</span>
+                            </button>
+                            <button class="tab-btn" data-model="knn" onclick="switchAnalyticsTab(event, 'knn')">
+                                <span class="model-badge knn-badge">KNN</span>
+                                <span>Details</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Overview Tab -->
+                    <div id="overview-tab" class="analytics-tab-content active">
+                        <div class="section-grid">
+                            <!-- Model Comparison Chart -->
+                            <div class="glass-card chart-card">
+                                <h2>Model Performance Comparison</h2>
+                                <canvas id="performanceChart"></canvas>
+                            </div>
+
+                            <!-- Performance Metrics Summary -->
+                            <div class="glass-card metrics-card">
+                                <h2>Quick Summary</h2>
+                                <div class="metrics-container">
+                                    <div class="metric">
+                                        <div class="metric-value" style="color: #00d4ff;">94.2%</div>
+                                        <div class="metric-label">CNN Accuracy</div>
+                                        <div class="metric-badge cnn-badge">Highest</div>
+                                    </div>
+                                    <div class="metric">
+                                        <div class="metric-value" style="color: #ffa500;">89.7%</div>
+                                        <div class="metric-label">SVM Accuracy</div>
+                                        <div class="metric-badge svm-badge">2nd</div>
+                                    </div>
+                                    <div class="metric">
+                                        <div class="metric-value" style="color: #ff6b6b;">87.3%</div>
+                                        <div class="metric-label">KNN Accuracy</div>
+                                        <div class="metric-badge knn-badge">3rd</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Detailed Metrics Table -->
+                        <div class="glass-card metrics-detailed">
+                            <h2>Detailed Performance Analysis</h2>
+                            <div class="metrics-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Model</th>
+                                            <th>Accuracy</th>
+                                            <th>Precision</th>
+                                            <th>Recall</th>
+                                            <th>F1-Score</th>
+                                            <th>Avg Response Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><span class="model-badge cnn-badge">CNN</span></td>
+                                            <td id="cnn-accuracy">94.2%</td>
+                                            <td id="cnn-precision">93.8%</td>
+                                            <td id="cnn-recall">94.6%</td>
+                                            <td id="cnn-f1">94.2%</td>
+                                            <td id="cnn-time">245ms</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="model-badge svm-badge">SVM</span></td>
+                                            <td id="svm-accuracy">89.7%</td>
+                                            <td id="svm-precision">89.1%</td>
+                                            <td id="svm-recall">90.3%</td>
+                                            <td id="svm-f1">89.7%</td>
+                                            <td id="svm-time">156ms</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="model-badge knn-badge">KNN</span></td>
+                                            <td id="knn-accuracy">87.3%</td>
+                                            <td id="knn-precision">86.8%</td>
+                                            <td id="knn-recall">87.9%</td>
+                                            <td id="knn-f1">87.3%</td>
+                                            <td id="knn-time">189ms</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CNN Detailed Tab -->
+                    <div id="cnn-tab" class="analytics-tab-content">
+                        <div class="section-grid">
+                            <div class="glass-card model-detail-card">
+                                <div class="model-header cnn-header">
+                                    <span class="model-badge cnn-badge">CNN</span>
+                                    <h2>Convolutional Neural Network</h2>
+                                    <p>Deep learning model optimized for image recognition</p>
+                                </div>
+                                <canvas id="cnnChart"></canvas>
+                            </div>
+
+                            <div class="glass-card">
+                                <h3>Performance Metrics</h3>
+                                <div class="detail-metrics">
+                                    <div class="detail-metric">
+                                        <span class="metric-name">Accuracy</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill" style="width: 94.2%; background: #00d4ff;"></div>
+                                        </div>
+                                        <span class="metric-value">94.2%</span>
+                                    </div>
+                                    <div class="detail-metric">
+                                        <span class="metric-name">Precision</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill" style="width: 93.8%; background: #00d4ff;"></div>
+                                        </div>
+                                        <span class="metric-value">93.8%</span>
+                                    </div>
+                                    <div class="detail-metric">
+                                        <span class="metric-name">Recall</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill" style="width: 94.6%; background: #00d4ff;"></div>
+                                        </div>
+                                        <span class="metric-value">94.6%</span>
+                                    </div>
+                                    <div class="detail-metric">
+                                        <span class="metric-name">F1-Score</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill" style="width: 94.2%; background: #00d4ff;"></div>
+                                        </div>
+                                        <span class="metric-value">94.2%</span>
+                                    </div>
+                                    <div class="detail-metric">
+                                        <span class="metric-name">Avg Response Time</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill" style="width: 60%; background: #00ff88;"></div>
+                                        </div>
+                                        <span class="metric-value">245ms</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="glass-card">
+                            <h3>Model Information</h3>
+                            <ul class="info-list">
+                                <li><strong>Architecture:</strong> ResNet-50 with fine-tuning</li>
+                                <li><strong>Training Samples:</strong> 5,000 images</li>
+                                <li><strong>Parameters:</strong> 23.5M</li>
+                                <li><strong>Framework:</strong> TensorFlow/Keras</li>
+                                <li><strong>Last Updated:</strong> 2026-02-13</li>
+                                <li><strong>Status:</strong> <span style="color: #00ff88;">Active</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- SVM Detailed Tab -->
+                    <div id="svm-tab" class="analytics-tab-content">
+                        <div class="section-grid">
+                            <div class="glass-card model-detail-card">
+                                <div class="model-header svm-header">
+                                    <span class="model-badge svm-badge">SVM</span>
+                                    <h2>Support Vector Machine</h2>
+                                    <p>Classical ML model with RBF kernel for classification</p>
+                                </div>
+                                <canvas id="svmChart"></canvas>
+                            </div>
+
+                            <div class="glass-card">
+                                <h3>Performance Metrics</h3>
+                                <div class="detail-metrics">
+                                    <div class="detail-metric">
+                                        <span class="metric-name">Accuracy</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill" style="width: 89.7%; background: #ffa500;"></div>
+                                        </div>
+                                        <span class="metric-value">89.7%</span>
+                                    </div>
+                                    <div class="detail-metric">
+                                        <span class="metric-name">Precision</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill" style="width: 89.1%; background: #ffa500;"></div>
+                                        </div>
+                                        <span class="metric-value">89.1%</span>
+                                    </div>
+                                    <div class="detail-metric">
+                                        <span class="metric-name">Recall</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill" style="width: 90.3%; background: #ffa500;"></div>
+                                        </div>
+                                        <span class="metric-value">90.3%</span>
+                                    </div>
+                                    <div class="detail-metric">
+                                        <span class="metric-name">F1-Score</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill" style="width: 89.7%; background: #ffa500;"></div>
+                                        </div>
+                                        <span class="metric-value">89.7%</span>
+                                    </div>
+                                    <div class="detail-metric">
+                                        <span class="metric-name">Avg Response Time</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill" style="width: 38%; background: #00ff88;"></div>
+                                        </div>
+                                        <span class="metric-value">156ms</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="glass-card">
+                            <h3>Model Information</h3>
+                            <ul class="info-list">
+                                <li><strong>Kernel:</strong> RBF (Radial Basis Function)</li>
+                                <li><strong>Training Samples:</strong> 5,000 images</li>
+                                <li><strong>Feature Extraction:</strong> HOG + Color Histograms</li>
+                                <li><strong>Framework:</strong> Scikit-learn 1.3</li>
+                                <li><strong>Last Updated:</strong> 2026-02-13</li>
+                                <li><strong>Status:</strong> <span style="color: #00ff88;">Active</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- KNN Detailed Tab -->
+                    <div id="knn-tab" class="analytics-tab-content">
+                        <div class="section-grid">
+                            <div class="glass-card model-detail-card">
+                                <div class="model-header knn-header">
+                                    <span class="model-badge knn-badge">KNN</span>
+                                    <h2>K-Nearest Neighbors</h2>
+                                    <p>Instance-based learning with k=5 neighbors</p>
+                                </div>
+                                <canvas id="knnChart"></canvas>
+                            </div>
+
+                            <div class="glass-card">
+                                <h3>Performance Metrics</h3>
+                                <div class="detail-metrics">
+                                    <div class="detail-metric">
+                                        <span class="metric-name">Accuracy</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill" style="width: 87.3%; background: #ff6b6b;"></div>
+                                        </div>
+                                        <span class="metric-value">87.3%</span>
+                                    </div>
+                                    <div class="detail-metric">
+                                        <span class="metric-name">Precision</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill" style="width: 86.8%; background: #ff6b6b;"></div>
+                                        </div>
+                                        <span class="metric-value">86.8%</span>
+                                    </div>
+                                    <div class="detail-metric">
+                                        <span class="metric-name">Recall</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill" style="width: 87.9%; background: #ff6b6b;"></div>
+                                        </div>
+                                        <span class="metric-value">87.9%</span>
+                                    </div>
+                                    <div class="detail-metric">
+                                        <span class="metric-name">F1-Score</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill" style="width: 87.3%; background: #ff6b6b;"></div>
+                                        </div>
+                                        <span class="metric-value">87.3%</span>
+                                    </div>
+                                    <div class="detail-metric">
+                                        <span class="metric-name">Avg Response Time</span>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill" style="width: 46%; background: #00ff88;"></div>
+                                        </div>
+                                        <span class="metric-value">189ms</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="glass-card">
+                            <h3>Model Information</h3>
+                            <ul class="info-list">
+                                <li><strong>Algorithm:</strong> k-Nearest Neighbors (k=5)</li>
+                                <li><strong>Training Samples:</strong> 5,000 images</li>
+                                <li><strong>Distance Metric:</strong> Euclidean</li>
+                                <li><strong>Framework:</strong> Scikit-learn 1.3</li>
+                                <li><strong>Last Updated:</strong> 2026-02-13</li>
+                                <li><strong>Status:</strong> <span style="color: #00ff88;">Active</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- History Section -->
+                <section id="history-section" class="content-section" data-page="history">
+                    <div class="glass-card history-card">
+                        <h2><i class="fas fa-history"></i> Inspection History</h2>
+                        <div class="history-controls">
+                            <input type="text" id="searchHistory" placeholder="Search inspections..." class="search-input">
+                            <select id="filterSeverity" class="filter-select">
+                                <option value="">All Severity Levels</option>
+                                <option value="Low">Low</option>
+                                <option value="Medium">Medium</option>
+                                <option value="Critical">Critical</option>
+                            </select>
+                        </div>
+                        <table class="history-table">
+                            <thead>
+                                <tr>
+                                    <th>Date & Time</th>
+                                    <th>Image</th>
+                                    <th>Defect Type</th>
+                                    <th>Best Model</th>
+                                    <th>Confidence</th>
+                                    <th>Severity</th>
+                                    <th>Time (ms)</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="historyTableBody">
+                                <tr>
+                                    <td colspan="8" class="no-data">No inspection records yet. Upload an image to start.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Model Performance Section -->
+                <section id="model-performance-section" class="content-section" data-page="model-performance">
+                    <div class="performance-grid">
+                        <div class="glass-card performance-card">
+                            <h2><i class="fas fa-chart-area"></i> Model Training Performance</h2>
+                            <div class="performance-info">
+                                <p>Training Loss vs Validation Loss Over Epochs</p>
+                            </div>
+                            <div class="plot-container">
+                                <div id="performanceContent" class="performance-content">
+                                    <div class="placeholder">
+                                        <i class="fas fa-sync-alt fa-spin"></i>
+                                        <p>Loading performance chart...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="glass-card performance-stats-card">
+                            <h2><i class="fas fa-tachometer-alt"></i> Performance Summary</h2>
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <label>Total Epochs:</label>
+                                    <span class="stat-value">50</span>
+                                </div>
+                                <div class="stat-item">
+                                    <label>Final Training Loss:</label>
+                                    <span class="stat-value">0.082</span>
+                                </div>
+                                <div class="stat-item">
+                                    <label>Final Validation Loss:</label>
+                                    <span class="stat-value">0.098</span>
+                                </div>
+                                <div class="stat-item">
+                                    <label>Best Epoch:</label>
+                                    <span class="stat-value">48</span>
+                                </div>
+                                <div class="stat-item">
+                                    <label>Overfitting Index:</label>
+                                    <span class="stat-value">Low</span>
+                                </div>
+                                <div class="stat-item">
+                                    <label>Model Status:</label>
+                                    <span class="stat-value status-healthy">Healthy</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Settings Section -->
+                <section id="settings-section" class="content-section" data-page="settings">
+                    <div class="settings-grid">
+                        <div class="glass-card settings-card">
+                            <h2><i class="fas fa-sliders-h"></i> Model Settings</h2>
+                            <div class="settings-group">
+                                <label>
+                                    <input type="checkbox" id="enableCNN" checked>
+                                    <span>Enable CNN Model</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" id="enableSVM" checked>
+                                    <span>Enable SVM Model</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" id="enableKNN" checked>
+                                    <span>Enable KNN Model</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="glass-card settings-card">
+                            <h2><i class="fas fa-bell"></i> Alert Settings</h2>
+                            <div class="settings-group">
+                                <label>
+                                    <input type="checkbox" id="criticalAlerts" checked>
+                                    <span>Critical Severity Alerts</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" id="emailAlerts">
+                                    <span>Email Notifications</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="glass-card settings-card">
+                            <h2><i class="fas fa-database"></i> System Info</h2>
+                            <ul class="info-list">
+                                <li><strong>Backend Status:</strong> <span id="backendStatus" class="status-online">Online</span></li>
+                                <li><strong>Database:</strong> <span>SQLite 3.x</span></li>
+                                <li><strong>Uploaded Images:</strong> <span id="imageCount">0</span></li>
+                                <li><strong>Total Predictions:</strong> <span id="predictionCount">0</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner" class="loading-spinner" style="display: none;">
+        <div class="spinner"></div>
+        <p>Processing your image...</p>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

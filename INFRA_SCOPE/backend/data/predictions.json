@@ -1,0 +1,12 @@
+[
+  {
+    "timestamp": "2026-02-13T22:44:51.327339",
+    "filename": "1771002890241_Screenshot_2025-10-29_051732.png",
+    "prediction_time_ms": 210,
+    "results": {
+      "cnn": {
+        "defect_type": "Erosion",
+        "confidence": 0.95,
+        "severity": "Critical",
+        "edge_density": 3.364,
+        "contrast": 

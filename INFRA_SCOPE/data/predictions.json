@@ -1,0 +1,522 @@
+[
+  {
+    "timestamp": "2026-02-14T21:48:07.280002",
+    "filename": "1771085884155_Screenshot_2025-10-29_051732.png",
+    "prediction_time_ms": 407,
+    "results": {
+      "cnn": {
+        "defect_type": "Erosion",
+        "confidence": 0.95,
+        "severity": "Critical",
+        "edge_density": 3.364,
+        "contrast": 0.08100000023841858
+      },
+      "svm": {
+        "defect_type": "Erosion",
+        "confidence": 0.92,
+        "severity": "Critical",
+        "features_extracted": 12
+      },
+      "knn": {
+        "defect_type": "Erosion",
+        "confidence": 0.9,
+        "severity": "Medium",
+        "neighbors": 5
+      }
+    }
+  },
+  {
+    "timestamp": "2026-02-14T21:56:47.763450",
+    "filename": "1771086406983_Screenshot_2025-10-29_051732.png",
+    "prediction_time_ms": 206,
+    "results": {
+      "cnn": {
+        "defect_type": "Erosion",
+        "confidence": 0.95,
+        "severity": "Critical",
+        "edge_density": 3.364,
+        "contrast": 0.08100000023841858
+      },
+      "svm": {
+        "defect_type": "Erosion",
+        "confidence": 0.92,
+        "severity": "Critical",
+        "features_extracted": 12
+      },
+      "knn": {
+        "defect_type": "Erosion",
+        "confidence": 0.9,
+        "severity": "Medium",
+        "neighbors": 5
+      }
+    }
+  },
+  {
+    "timestamp": "2026-02-14T21:57:49.705252",
+    "filename": "1771086469508_Screenshot_2025-10-29_051732.png",
+    "prediction_time_ms": 33,
+    "results": {
+      "cnn": {
+        "defect_type": "Erosion",
+        "confidence": 0.95,
+        "severity": "Critical",
+        "edge_density": 3.364,
+        "contrast": 0.08100000023841858
+      },
+      "svm": {
+        "defect_type": "Erosion",
+        "confidence": 0.92,
+        "severity": "Critical",
+        "features_extracted": 12
+      },
+      "knn": {
+        "defect_type": "Erosion",
+        "confidence": 0.9,
+        "severity": "Medium",
+        "neighbors": 5
+      }
+    }
+  },
+  {
+    "timestamp": "2026-02-14T23:13:42.965257",
+    "filename": "1771091022670_Screenshot_2025-10-29_051732.png",
+    "prediction_time_ms": 59,
+    "results": {
+      "cnn": {
+        "defect_type": "Erosion",
+        "confidence": 0.95,
+        "severity": "Critical",
+        "edge_density": 3.364,
+        "contrast": 0.08100000023841858
+      },
+      "svm": {
+        "defect_type": "Erosion",
+        "confidence": 0.92,
+        "severity": "Critical",
+        "features_extracted": 12
+      },
+      "knn": {
+        "defect_type": "Erosion",
+        "confidence": 0.9,
+        "severity": "Medium",
+        "neighbors": 5
+      }
+    }
+  },
+  {
+    "timestamp": "2026-02-14T23:23:31.317459",
+    "filename": "1771091610723_Screenshot_2025-10-29_051732.png",
+    "prediction_time_ms": 276,
+    "results": {
+      "cnn": {
+        "defect_type": "Erosion",
+        "confidence": 0.95,
+        "severity": "Critical",
+        "edge_density": 3.364,
+        "contrast": 0.08100000023841858
+      },
+      "svm": {
+        "defect_type": "Erosion",
+        "confidence": 0.92,
+        "severity": "Critical",
+        "features_extracted": 12
+      },
+      "knn": {
+        "defect_type": "Erosion",
+        "confidence": 0.9,
+        "severity": "Medium",
+        "neighbors": 5
+      }
+    }
+  },
+  {
+    "timestamp": "2026-02-14T23:30:54.494540",
+    "filename": "1771092053288_Screenshot_2025-10-29_051732.png",
+    "prediction_time_ms": 373,
+    "results": {
+      "cnn": {
+        "defect_type": "Erosion",
+        "confidence": 0.95,
+        "severity": "Critical",
+        "edge_density": 3.364,
+        "contrast": 0.08100000023841858
+      },
+      "svm": {
+        "defect_type": "Erosion",
+        "confidence": 0.92,
+        "severity": "Critical",
+        "features_extracted": 12
+      },
+      "knn": {
+        "defect_type": "Erosion",
+        "confidence": 0.9,
+        "severity": "Medium",
+        "neighbors": 5
+      }
+    }
+  },
+  {
+    "timestamp": "2026-02-15T13:07:01.094367",
+    "filename": "1771141020605_Screenshot_2025-10-29_051732.png",
+    "prediction_time_ms": 121,
+    "results": {
+      "cnn": {
+        "defect_type": "Erosion",
+        "confidence": 0.95,
+        "severity": "Critical",
+        "edge_density": 3.364,
+        "contrast": 0.08100000023841858
+      },
+      "svm": {
+        "defect_type": "Erosion",
+        "confidence": 0.92,
+        "severity": "Critical",
+        "features_extracted": 12
+      },
+      "knn": {
+        "defect_type": "Erosion",
+        "confidence": 0.9,
+        "severity": "Medium",
+        "neighbors": 5
+      }
+    }
+  },
+  {
+    "timestamp": "2026-02-15T13:11:56.166883",
+    "filename": "1771141315403_Screenshot_2025-10-29_051732.png",
+    "prediction_time_ms": 164,
+    "results": {
+      "cnn": {
+        "defect_type": "Erosion",
+        "confidence": 0.95,
+        "severity": "Critical",
+        "edge_density": 3.364,
+        "contrast": 0.08100000023841858
+      },
+      "svm": {
+        "defect_type": "Erosion",
+        "confidence": 0.92,
+        "severity": "Critical",
+        "features_extracted": 12
+      },
+      "knn": {
+        "defect_type": "Erosion",
+        "confidence": 0.9,
+        "severity": "Medium",
+        "neighbors": 5
+      }
+    }
+  },
+  {
+    "timestamp": "2026-02-15T14:14:59.816112",
+    "filename": "1771145099673_1771141315403_Screenshot_2025-10-29_051732.png",
+    "prediction_time_ms": 42,
+    "results": {
+      "cnn": {
+        "defect_type": "Erosion",
+        "confidence": 0.98,
+        "severity": "Critical",
+        "edge_density": 3.3644,
+        "contrast": 0.08110000193119049
+      },
+      "svm": {
+        "defect_type": "Erosion",
+        "confidence": 0.95,
+        "severity": "Critical",
+        "features_extracted": 12
+      },
+      "knn": {
+        "defect_type": "Erosion",
+        "confidence": 0.92,
+        "severity": "Critical",
+        "neighbors": 5
+      }
+    }
+  },
+  {
+    "timestamp": "2026-02-15T14:15:15.960618",
+    "filename": "1771145115933_test_blank.png",
+    "prediction_time_ms": 15,
+    "results": {
+      "cnn": {
+        "defect_type": "No Damage",
+        "confidence": 0.45,
+        "severity": "Low",
+        "edge_density": 0.0,
+        "contrast": 0.0
+      },
+      "svm": {
+        "defect_type": "No Damage",
+        "confidence": 0.4,
+        "severity": "Low",
+        "features_extracted": 12
+      },
+      "knn": {
+        "defect_type": "No Damage",
+        "confidence": 0.35,
+        "severity": "Low",
+        "neighbors": 5
+      }
+    }
+  },
+  {
+    "timestamp": "2026-02-15T14:15:18.055031",
+    "filename": "1771145118033_test_crack.png",
+    "prediction_time_ms": 12,
+    "results": {
+      "cnn": {
+        "defect_type": "Erosion",
+        "confidence": 0.98,
+        "severity": "Critical",
+        "edge_density": 2.7443,
+        "contrast": 0.13449999690055847
+      },
+      "svm": {
+        "defect_type": "Erosion",
+        "confidence": 0.95,
+        "severity": "Critical",
+        "features_extracted": 12
+      },
+      "knn": {
+        "defect_type": "Erosion",
+        "confidence": 0.92,
+        "severity": "Critical",
+        "neighbors": 5
+      }
+    }
+  },
+  {
+    "timestamp": "2026-02-15T14:16:26.550465",
+    "filename": "1771145186369_Screenshot_2025-10-29_051732.png",
+    "prediction_time_ms": 84,
+    "results": {
+      "cnn": {
+        "defect_type": "Erosion",
+        "confidence": 0.98,
+        "severity": "Critical",
+        "edge_density": 3.3644,
+        "contrast": 0.08110000193119049
+      },
+      "svm": {
+        "defect_type": "Erosion",
+        "confidence": 0.95,
+        "severity": "Critical",
+        "features_extracted": 12
+      },
+      "knn": {
+        "defect_type": "Erosion",
+        "confidence": 0.92,
+        "severity": "Critical",
+        "neighbors": 5
+      }
+    }
+  },
+  {
+    "timestamp": "2026-02-15T14:17:08.351555",
+    "filename": "1771145228213_Screenshot_2025-10-29_051732.png",
+    "prediction_time_ms": 33,
+    "results": {
+      "cnn": {
+        "defect_type": "Erosion",
+        "confidence": 0.98,
+        "severity": "Critical",
+        "edge_density": 3.3644,
+        "contrast": 0.08110000193119049
+      },
+      "svm": {
+        "defect_type": "Erosion",
+        "confidence": 0.95,
+        "severity": "Critical",
+        "features_extracted": 12
+      },
+      "knn": {
+        "defect_type": "Erosion",
+        "confidence": 0.92,
+        "severity": "Critical",
+        "neighbors": 5
+      }
+    }
+  },
+  {
+    "timestamp": "2026-02-15T14:19:28.408770",
+    "filename": "1771145368327_test_noise.png",
+    "prediction_time_ms": 32,
+    "results": {
+      "cnn": {
+        "defect_type": "Erosion",
+        "confidence": 0.98,
+        "severity": "Critical",
+        "edge_density": 26.7268,
+        "contrast": 0.053599998354911804
+      },
+      "svm": {
+        "defect_type": "Erosion",
+        "confidence": 0.95,
+        "severity": "Critical",
+        "features_extracted": 12
+      },
+      "knn": {
+        "defect_type": "Erosion",
+        "confidence": 0.92,
+        "severity": "Critical",
+        "neighbors": 5
+      }
+    }
+  },
+  {
+    "timestamp": "2026-02-15T14:19:30.971604",
+    "filename": "1771145370955_test_white.png",
+    "prediction_time_ms": 8,
+    "results": {
+      "cnn": {
+        "defect_type": "No Damage",
+        "confidence": 0.45,
+        "severity": "Low",
+        "edge_density": 0.0,
+        "contrast": 0.0
+      },
+      "svm": {
+        "defect_type": "No Damage",
+        "confidence": 0.4,
+        "severity": "Low",
+        "features_extracted": 12
+      },
+      "knn": {
+        "defect_type": "No Damage",
+        "confidence": 0.35,
+        "severity": "Low",
+        "neighbors": 5
+      }
+    }
+  },
+  {
+    "timestamp": "2026-02-15T14:19:33.531078",
+    "filename": "1771145373521_test_black.png",
+    "prediction_time_ms": 10,
+    "results": {
+      "cnn": {
+        "defect_type": "No Damage",
+        "confidence": 0.45,
+        "severity": "Low",
+        "edge_density": 0.0,
+        "contrast": 0.0
+      },
+      "svm": {
+        "defect_type": "No Damage",
+        "confidence": 0.4,
+        "severity": "Low",
+        "features_extracted": 12
+      },
+      "knn": {
+        "defect_type": "No Damage",
+        "confidence": 0.35,
+        "severity": "Low",
+        "neighbors": 5
+      }
+    }
+  },
+  {
+    "timestamp": "2026-02-15T14:21:53.746306",
+    "filename": "1771145513725_test_white.png",
+    "prediction_time_ms": 4,
+    "results": {
+      "cnn": {
+        "defect_type": "No Damage",
+        "confidence": 0.45,
+        "severity": "Low",
+        "edge_density": 0.0,
+        "contrast": 0.0
+      },
+      "svm": {
+        "defect_type": "No Damage",
+        "confidence": 0.4,
+        "severity": "Low",
+        "features_extracted": 12
+      },
+      "knn": {
+        "defect_type": "No Damage",
+        "confidence": 0.35,
+        "severity": "Low",
+        "neighbors": 5
+      }
+    }
+  },
+  {
+    "timestamp": "2026-02-15T14:21:56.829179",
+    "filename": "1771145516806_test_noise.png",
+    "prediction_time_ms": 8,
+    "results": {
+      "cnn": {
+        "defect_type": "Erosion",
+        "confidence": 0.98,
+        "severity": "Critical",
+        "edge_density": 26.7268,
+        "contrast": 0.053599998354911804
+      },
+      "svm": {
+        "defect_type": "Erosion",
+        "confidence": 0.95,
+        "severity": "Critical",
+        "features_extracted": 12
+      },
+      "knn": {
+        "defect_type": "Erosion",
+        "confidence": 0.92,
+        "severity": "Critical",
+        "neighbors": 5
+      }
+    }
+  },
+  {
+    "timestamp": "2026-02-15T14:24:16.900052",
+    "filename": "1771145656746_Screenshot_2025-10-29_051732.png",
+    "prediction_time_ms": 30,
+    "results": {
+      "cnn": {
+        "defect_type": "Erosion",
+        "confidence": 0.98,
+        "severity": "Critical",
+        "edge_density": 3.3644,
+        "contrast": 0.08110000193119049
+      },
+      "svm": {
+        "defect_type": "Erosion",
+        "confidence": 0.95,
+        "severity": "Critical",
+        "features_extracted": 12
+      },
+      "knn": {
+        "defect_type": "Erosion",
+        "confidence": 0.92,
+        "severity": "Critical",
+        "neighbors": 5
+      }
+    }
+  },
+  {
+    "timestamp": "2026-02-15T14:34:54.227305",
+    "filename": "1771146293948_Screenshot_2025-10-29_051732.png",
+    "prediction_time_ms": 53,
+    "results": {
+      "cnn": {
+        "defect_type": "Erosion",
+        "confidence": 0.98,
+        "severity": "Critical",
+        "edge_density": 3.3644,
+        "contrast": 0.08110000193119049
+      },
+      "svm": {
+        "defect_type": "Erosion",
+        "confidence": 0.95,
+        "severity": "Critical",
+        "features_extracted": 12
+      },
+      "knn": {
+        "defect_type": "Erosion",
+        "confidence": 0.92,
+        "severity": "Critical",
+        "neighbors": 5
+      }
+    }
+  }
+]
